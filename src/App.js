@@ -1,6 +1,10 @@
-import './App.scss';
+import './style/App.scss';
+import './style/arrow.scss';
+import './style/photo.scss';
+import Arrow from './components/Arrow';
 import PhotoProfile from './components/PhotoProfile';
 import Presentation from './components/Presentation';
+import Contacts from './components/Contacts';
 
 function App() {
   return (
@@ -12,6 +16,10 @@ function App() {
         <div className="container">
           <PhotoProfile />
           <Presentation />
+        </div>
+        <div className="container">
+          <Contacts />
+          <Arrow />
         </div>
       </div>
     </div>

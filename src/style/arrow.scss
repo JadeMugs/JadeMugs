@@ -1,0 +1,78 @@
+@import './colors.scss';
+
+.arrow {
+  cursor: pointer;
+  margin: auto;
+  height: 500px;
+
+  line {
+    stroke-width: 2;
+
+    &.main-color {
+      stroke: $main-color;
+    }
+    &.second-color {
+      stroke: $second-color;
+    }
+    &.third-color {
+      stroke: $third-color;
+    }
+  }
+
+  &:hover {
+    .main-color {
+      animation: color-transition-1 0.8s infinite normal;
+    }
+    .second-color {
+      animation: color-transition-2 0.8s infinite normal;
+    }
+    .third-color {
+      animation: color-transition-3 0.8s infinite normal;
+    }
+  }
+}
+
+@keyframes color-transition-1 {
+  0% {
+    stroke: $main-color;
+  }
+  33% {
+    stroke: $third-color;
+  }
+  66% {
+    stroke: $second-color;
+  }
+  99% {
+    stroke: $main-color;
+  }
+}
+
+@keyframes color-transition-2 {
+  0% {
+    stroke: $second-color;
+  }
+  33% {
+    stroke: $main-color;
+  }
+  66% {
+    stroke: $third-color;
+  }
+  99% {
+    stroke: $second-color;
+  }
+}
+
+@keyframes color-transition-3 {
+  0% {
+    stroke: $third-color;
+  }
+  33% {
+    stroke: $second-color;
+  }
+  66% {
+    stroke: $main-color;
+  }
+  99% {
+    stroke: $third-color;
+  }
+}

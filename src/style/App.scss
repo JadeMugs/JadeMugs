@@ -1,7 +1,4 @@
-$main-color: #be2c85;
-$background-color: #fcfcfc;
-$second-color: #ffb8c3;
-$third-color: #fa773b;
+@import './colors.scss';
 $main-box-shadow: 4px 4px 20px $main-color;
 
 $custom-border: 5px double $main-color;
@@ -43,54 +40,7 @@ $third-custom-border: 5px double $third-color;
 
   .container {
     display: flex;
-    margin: 2rem 4rem 0;
-  }
-
-  .photo-container {
-    margin: 1rem 3rem;
-
-    position: relative;
-    min-width: 400px;
-    min-height: 400px;
-
-    .photo {
-      z-index: 100;
-      background-color: white;
-      height: 390px;
-      width: 300px;
-      box-shadow: 0 0 0 3px $main-color, 0 0 0 7px $background-color,
-        0 0 0 10px $main-color;
-      position: absolute;
-      left: 0px;
-      top: 15px;
-      background: url('./public/profile.jpg') no-repeat;
-      background-size: cover;
-    }
-
-    .square {
-      position: absolute;
-      // background-color: $background-color;
-
-      &.square-1 {
-        height: 395px;
-        width: 300px;
-        left: 35px;
-        top: -5px;
-        z-index: 1;
-        box-shadow: 0 0 0 3px $third-color, 0 0 0 7px $background-color,
-          0 0 0 10px $third-color;
-      }
-
-      &.square-2 {
-        height: 280px;
-        width: 390px;
-        left: -25px;
-        top: 15%;
-        z-index: 1;
-        box-shadow: 0 0 0 3px $second-color, 0 0 0 7px $background-color,
-          0 0 0 10px $second-color;
-      }
-    }
+    margin: 5rem 4rem 0;
   }
 
   .App-presentation {
