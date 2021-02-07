@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Presentation() {
   return (
-    <div className="App-presentation">
+    <div className="presentation-container">
       <div className="align-center">
         <div className="left-name">
           <h1 className="border left top">Giada</h1>

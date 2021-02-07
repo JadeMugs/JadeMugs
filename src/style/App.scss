@@ -22,12 +22,15 @@ $third-custom-border: 5px double $third-color;
   background-color: $background-color;
 }
 
-.App-header {
+header {
+  background-color: $background-color;
+  position: sticky;
+  top: 0;
   width: 100%;
-  min-height: 50px;
-  // box-shadow: $main-box-shadow;
+  min-height: 60px;
   color: #000000;
   vertical-align: middle;
+  z-index: 1000;
 
   div.title {
     padding: 0.5rem 1rem;
@@ -35,45 +38,72 @@ $third-custom-border: 5px double $third-color;
   }
 }
 
-.App-content {
-  margin-top: 5rem;
+.page {
+  height: calc(100vh - 65px);
+  padding-left: 4rem;
+  padding-right: 4rem;
 
-  .container {
+  .main-container {
+    padding-top: 5rem;
+    padding-bottom: 1rem;
     display: flex;
-    margin: 5rem 4rem 0;
+
+    .presentation-container {
+      width: 100%;
+      margin-top: 1rem;
+
+      .left-name {
+        width: 250px;
+        align-items: flex-start;
+        margin: auto;
+        h1 {
+          margin-left: 0;
+          margin-right: auto;
+          padding-left: 10px;
+          padding-right: 2px;
+        }
+      }
+
+      .right-name {
+        width: 250px;
+        margin: auto;
+        h1 {
+          margin-left: auto;
+          margin-right: 0;
+          padding-left: 2px;
+          padding-right: 10px;
+        }
+      }
+
+      h1 {
+        width: fit-content;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
   }
 
-  .App-presentation {
-    width: 100%;
-    margin-top: 1rem;
+  .contacts-container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
 
-    .left-name {
-      width: 250px;
-      align-items: flex-start;
-      margin: auto;
-      h1 {
-        margin-left: 0;
-        margin-right: auto;
-        padding-left: 10px;
-        padding-right: 2px;
+    .contact {
+      text-decoration: none;
+      color: inherit;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      p {
+        padding: 5px;
+        font-size: calc(14px + 1vmin);
       }
-    }
-
-    .right-name {
-      width: 250px;
-      margin: auto;
-      h1 {
-        margin-left: auto;
-        margin-right: 0;
-        padding-left: 2px;
-        padding-right: 10px;
+      svg {
+        font-size: calc(10px + 3vmin);
       }
-    }
-
-    h1 {
-      width: fit-content;
-      margin-top: 0;
-      margin-bottom: 0;
+      &:hover {
+        color: $main-color;
+      }
     }
   }
 }

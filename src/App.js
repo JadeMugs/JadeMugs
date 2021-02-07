@@ -5,15 +5,16 @@ import Arrow from './components/Arrow';
 import PhotoProfile from './components/PhotoProfile';
 import Presentation from './components/Presentation';
 import Contacts from './components/Contacts';
+import Experiences from './components/Experiences';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header border bottom">
+      <header className="border bottom">
         <div className="title">Giada Boccali</div>
       </header>
-      <div className="App-content">
-        <div className="container">
+      <div className="page">
+        <div className="main-container">
           <PhotoProfile />
           <Presentation />
         </div>
@@ -21,6 +22,9 @@ function App() {
           <Contacts />
           <Arrow />
         </div>
+      </div>
+      <div className="page">
+        <Experiences />
       </div>
     </div>
   );
