@@ -1,6 +1,6 @@
-## Demo
+## Website
 
-📌 [https://astro-fe-portfolio.netlify.app/](https://astro-fe-portfolio.netlify.app/)
+📌 [https://giada-boccali.netlify.app/](https://giada-boccali.netlify.app/)
 
 ## Credits
 
