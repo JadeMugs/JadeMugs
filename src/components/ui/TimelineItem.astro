@@ -1,0 +1,55 @@
+---
+import starIcon from '/icons/star.svg?raw';
+
+type Props = {
+  title: string;
+  subtitle: string;
+  description: string;
+  tags: string[];
+  startDate: string;
+  endDate: string;
+};
+
+const { title, subtitle, description, tags, startDate, endDate } = Astro.props as Props;
+---
+
+<li class="group mb-8 flex flex-col gap-1 transition-all duration-300 md:mb-0 md:flex-row md:gap-6">
+  <div class="w-full min-w-fit text-right text-sm md:w-[30%]">
+    <p>
+      From <span class="group-hover:text-md">{startDate}</span>
+    </p>
+    {
+      endDate && (
+        <p>
+          to <span class="group-hover:text-md">{startDate}</span>
+        </p>
+      )
+    }
+  </div>
+
+  <div class="relative hidden md:block">
+    <hr class="h-full border-l-2 border-l-stone-400 dark:border-l-stone-500" />
+    <div
+      class="absolute -left-[12px] top-0 flex h-[24px] w-[24px] rounded-full bg-orange-400 p-1 text-black transition-all duration-300 group-hover:scale-110 dark:bg-orange-600 dark:text-white"
+    >
+      <Fragment set:html={starIcon} />
+    </div>
+  </div>
+
+  <div class="flex w-full flex-col gap-2 py-0 md:w-[70%] md:py-8">
+    <span
+      class="flex flex-col gap-1 transition-all duration-300 group-hover:translate-x-3 group-hover:scale-105"
+    >
+      <p class="text-sm text-gray-600 dark:text-gray-300">{subtitle}</p>
+      <p class="text-lg">{title}</p>
+      <p class="text-xs md:text-sm">{description}</p>
+    </span>
+    <div class="flex flex-row flex-wrap gap-1">
+      {
+        tags.map((tag) => (
+          <div class="rounded-full bg-orange-300 px-2 py-0.5 text-xs text-black">{tag}</div>
+        ))
+      }
+    </div>
+  </div>
+</li>

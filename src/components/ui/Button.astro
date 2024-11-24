@@ -1,0 +1,35 @@
+---
+type Breakpoint = 'sm' | 'md' | 'lg';
+
+interface Props {
+  size?: Breakpoint;
+  block?: boolean;
+  style?: 'primary';
+  class?: string;
+  [x: string]: any;
+}
+
+const { size = 'md', style = 'primary', block, class: className, ...rest } = Astro.props as Props;
+
+const sizes: Record<Breakpoint, string> = {
+  sm: 'px-4 py-1.5',
+  md: 'px-5 py-2.5',
+  lg: 'px-6 py-3',
+};
+
+const styles = {
+  primary: 'bg-stone-900 text-white hover:bg-orange-600 border-2 border-orange-600',
+};
+---
+
+<button
+  {...rest}
+  class:list={[
+    'rounded-xl text-center transition focus-visible:ring-2 ring-offset-2 ring-orange-600',
+    block && 'w-full',
+    sizes[size],
+    styles[style],
+    className,
+  ]}
+  ><slot />
+</button>

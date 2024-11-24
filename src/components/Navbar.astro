@@ -1,0 +1,84 @@
+---
+import ToggleTheme from '@components/ui/ToggleTheme.astro';
+import LinkAsButton from '@components/ui/LinkAsButton.astro';
+import menuIcon from '/icons/menu.svg?raw';
+
+const menuitems = [
+  {
+    title: 'About',
+    path: '#about',
+  },
+  {
+    title: 'Career',
+    path: '#career',
+  },
+  {
+    title: 'Contacts',
+    path: '#contacts',
+  },
+];
+---
+
+<nav data-testId="header" class="flex w-full flex-row items-center justify-between px-5 py-3">
+  <LinkAsButton href="CV-Giada-Boccali.pdf" download="CV-Giada-Boccali">Download CV</LinkAsButton>
+
+  <div class="relative block lg:hidden">
+    <button
+      class="contents h-5 w-5 text-black dark:text-white"
+      aria-label="Toggle navigation menu"
+      id="menu-button"
+    >
+      <Fragment set:html={menuIcon} class="w-5 h-5 text-black dark:text-white" />
+    </button>
+  </div>
+  <div
+    id="menu-items"
+    class="absolute left-[-100%] top-0 z-50 hidden h-full w-[70%] bg-stone-500 p-4 transition duration-500 open:left-0 open:block lg:static lg:block lg:h-fit lg:w-auto lg:bg-transparent"
+  >
+    <ul class="flex flex-col items-center gap-3 lg:flex-row">
+      {
+        menuitems.map((item) => (
+          <li>
+            <a
+              href={item.path}
+              class="text-black hover:text-orange-600 dark:text-white dark:hover:text-orange-600"
+            >
+              {item.title}
+            </a>
+          </li>
+        ))
+      }
+      <li><ToggleTheme /></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  function toggleMenu() {
+    const menuItems = document.getElementById('menu-items');
+
+    if (!menuItems) return;
+
+    const isOpen = menuItems?.hasAttribute('open');
+
+    if (isOpen) {
+      menuItems.removeAttribute('open');
+      // document.getElementsByTagName('body')?.[0]?.classList.add('h-full', 'overflow-hidden')
+    } else {
+      menuItems.setAttribute('open', 'true');
+    }
+  }
+
+  function closeMenu() {
+    const menuItems = document.getElementById('menu-items');
+    menuItems?.removeAttribute('open');
+
+    // document.getElementsByTagName('body')?.[0]?.classList.remove('h-full', 'overflow-hidden')
+  }
+
+  const menuButton = document.getElementById('menu-button');
+  menuButton?.addEventListener('click', toggleMenu);
+
+  const links = document.querySelectorAll('li a');
+  links.forEach((link) => link.addEventListener('click', closeMenu));
+</script>

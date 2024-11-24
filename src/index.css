@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply text-black;
+    @apply bg-white;
+
+    @apply dark:text-white;
+    @apply dark:bg-stone-900;
+  }
+
+  * {
+    @apply outline-orange-600;
+  }
+}

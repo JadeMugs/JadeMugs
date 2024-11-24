@@ -1,0 +1,59 @@
+---
+import Card from '@components/ui/Card.astro';
+import { getCollection } from 'astro:content';
+
+const career = await getCollection('career', ({ data }) => {
+  return !data.inProgress;
+});
+---
+
+<!-- TODO: fix and use -->
+
+<section
+  data-testid="career"
+  id="career"
+  class="mb-10 flex flex-col items-center justify-center md:mb-0 md:h-screen"
+>
+  <div class="group flex w-fit flex-col items-center justify-center">
+    <h2 class="font-monospace text-2xl text-orange-600 lg:text-4xl">
+      Work and educational hystory
+    </h2>
+    <span class="mb-6 ml-2 h-1 w-10 bg-orange-600 transition-all duration-300 group-hover:w-full"
+    ></span>
+  </div>
+  <div class="mb-10 flex w-full flex-col flex-wrap items-center md:flex-row">
+    {
+      career.map((workExperience) => (
+        <Card
+          url={workExperience.data.link}
+          title={workExperience.data.title}
+          description={workExperience.data.description}
+          alt={workExperience.data.img_alt}
+          tags={workExperience.data.tags}
+        />
+      ))
+    }
+  </div>
+  <a
+    href="https://github.com/"
+    target="_blank"
+    rel="noopener"
+    class="flex flex-row text-black hover:text-orange-600 dark:text-white dark:hover:text-orange-600"
+    aria-label="link to repository"
+  >
+    View full private career archive
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="ml-1 h-6 w-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+    </svg>
+  </a>
+</section>
